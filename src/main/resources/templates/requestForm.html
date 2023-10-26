@@ -1,0 +1,17 @@
+</head>
+<body>
+    <h1>Account Information</h1>
+    <form action="/api/submit" method="post" accept-charset="UTF-8"> <!-- 폼이 서버로 제출될 때 어떤 URL로 보낼지 설정합니다. "/submit"은 예시 URL입니다. -->
+        <label for="accountId">ID:</label>
+        <input type="text" id="accountId" name="accountId" required> <!-- required 속성을 사용하여 필수 입력 필드로 만듭니다. -->
+        <br>
+        <label for="accountPassword">PASSWORD:</label>
+        <input type="password" id="accountPassword" name="accountPassword" required>
+        <br>
+        <label for="site">SITE ADDRESS:</label>
+        <input type="text" id="site" name="site" required>
+        <br>
+        <input type="submit" value="submit">
+    </form>
+</body>
+</html>
