@@ -1,10 +1,11 @@
 package com.weed.account_security.service;
 
 import com.weed.account_security.crypt.SeedCBC;
-import com.weed.account_security.dto.AccountInfoDto;
 import com.weed.account_security.entity.AccountInfoEntity;
 import com.weed.account_security.repository.AccountInfoRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,6 +15,17 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AccountInfoService {
     private final AccountInfoRepository accountInfoRepository;
+
+    // 현재 로그인 되어있는 사용자 정보 가져오기
+    public void getLoginInfo() {
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        UserDetails userDetails = (UserDetails)principal;
+        String username = ((UserDetails) principal).getUsername();
+        String password = ((UserDetails) principal).getPassword();
+        System.out.println(username);
+        System.out.println(password);
+    }
+
 
     // 계정 정보 저장
     public void save(AccountInfoEntity accountInfoEntity) {

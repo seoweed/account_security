@@ -65,4 +65,9 @@ class AccountSecurityApplicationTests {
 
 	}
 
+	@Test
+	void getLoginInfo() {
+		accountInfoService.getLoginInfo();
+	}
+
 }
