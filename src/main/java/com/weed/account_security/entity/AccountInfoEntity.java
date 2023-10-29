@@ -26,8 +26,5 @@ public class AccountInfoEntity {
     @Column(name = "save_at")
     private LocalDateTime saveAt;
 
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private UserEntity user;
-//
+    private String username;
 }

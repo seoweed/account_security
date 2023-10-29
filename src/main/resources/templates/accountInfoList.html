@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Information List</title>
+</head>
+<body>
+<h1>Account Information List for User: <span th:text="${username}"></span></h1>
+<table>
+    <tr>
+        <th>Account ID</th>
+        <th>Account Password</th>
+        <th>Site</th>
+        <th>Save At</th>
+    </tr>
+    <tr th:each="accountInfo : ${accountInfoList}">
+        <td th:text="${accountInfo.accountId}"></td>
+        <td th:text="${accountInfo.accountPassword}"></td>
+        <td th:text="${accountInfo.site}"></td>
+        <td th:text="${accountInfo.saveAt}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Info Form</title>
+</head>
+<body>
+<form method="POST" action="/user/submit"> <!-- "submit"은 데이터를 전송할 엔드포인트 URL로 변경해야 합니다 -->
+    <div>
+        <label for="accountId">Account ID:</label>
+        <input type="text" id="accountId" name="accountId" placeholder="Enter Account ID" />
+    </div>
+
+    <div>
+        <label for="accountPassword">Account Password:</label>
+        <input type="password" id="accountPassword" name="accountPassword" placeholder="Enter Account Password" />
+    </div>
+
+    <div>
+        <label for="site">Site:</label>
+        <input type="text" id="site" name="site" placeholder="Enter Site Name" />
+    </div>
+
+    <div>
+        <input type="submit" value="Submit" />
+    </div>
+</form>
+</body>
+</html>
