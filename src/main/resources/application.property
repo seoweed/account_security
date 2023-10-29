@@ -1,0 +1,19 @@
+#spring:
+#  jpa:
+#    show-sql: true
+#    properties:
+#      dialect: org.hibernate.dialect.MySQL8Dialect
+#      hibernate:
+#        format_sql: true
+#  #     ddl-auto: update
+#  #     ddl-auto: validate
+#      ddl-auto: create
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/account_security
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: root
+#    password: 4076
+#
+#logging:
+#  level:
+#    org.hibernate.type.descriptor.sql.BasicBinder: trace

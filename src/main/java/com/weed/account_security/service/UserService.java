@@ -20,6 +20,7 @@ public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
+    // 회원가입
     public void save(UserDto userDto) {
         userDto.setPassword(passwordEncoder.encode(userDto.getPassword()));
         userRepository.save(userDto.toEntity());

@@ -15,8 +15,9 @@ public class ViewController {
         return "login";
     }
 
-    @GetMapping("/register")
+    @GetMapping("/public/register")
     public String register() {
         return "register";
     }
+
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserApiController {
     private final UserService userService;
 
-    @PostMapping("/api/user")
+    @PostMapping("/public/api/user")
     public void save(@RequestBody UserDto userDto) {
         userService.save(userDto);
     }

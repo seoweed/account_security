@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Account Info Form</title>
+</head>
+<body>
+<form th:object="${accountInfoDto}" th:action="@{/account/save2}" method="post">
+    <label for="accountId">Account ID:</label>
+    <input type="text" id="accountId" th:field="*{accountId}" />
+
+    <label for="accountPassword">Account Password:</label>
+    <input type="password" id="accountPassword" th:field="*{accountPassword}" />
+
+    <label for="site">Site:</label>
+    <input type="text" id="site" th:field="*{site}" />
+
+    <!-- userId 필드를 제거 -->
+
+    <button type="submit">Submit</button>
+</form>
+</body>
+</html>

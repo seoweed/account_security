@@ -1,7 +1,7 @@
 (function () {
 
     document.getElementById('form-register').addEventListener('submit', (event) => {
-        fetch('/api/user', {
+        fetch('/public/api/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
