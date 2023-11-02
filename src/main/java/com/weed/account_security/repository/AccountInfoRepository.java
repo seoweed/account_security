@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface AccountInfoRepository extends JpaRepository<AccountInfoEntity, Long> {
     List<AccountInfoEntity> findAllByUsername(String username);
+    String findUsernameById(Long id);
 }

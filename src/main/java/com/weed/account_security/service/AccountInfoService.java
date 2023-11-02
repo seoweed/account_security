@@ -17,6 +17,7 @@ import java.util.List;
 public class AccountInfoService {
     private final AccountInfoRepository accountInfoRepository;
 
+
     public void save(AccountInfoDto accountInfoDto) {
         SeedCBC seedCBC = new SeedCBC();
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -35,6 +36,8 @@ public class AccountInfoService {
     }
 
 //     계정 정보 조회
+    // TODO 지금은 사용자의 이름을 파라미터로 받아서 출력해주는데 이렇게 되면 다른 사용자들이 자신 이외의 정보를 볼 수 있음
+    // 따라서 로그인 되어있는 사용자의 이름을 자동으로 파라미터에 넣거나 자동으로 들어가게 만들어서 조회를 하면 될것같음
     public List<AccountInfoEntity> read(String username) {
         SeedCBC seedCBC = new SeedCBC();
         List<AccountInfoEntity> allByUsername = accountInfoRepository.findAllByUsername(username);
@@ -52,7 +55,7 @@ public class AccountInfoService {
 //    }
 //
 //     계정 정보 삭제
-//    public void delete(Long id) {
-//        accountInfoRepository.deleteById(id);
-//    }
+    public void delete(Long id) {
+        accountInfoRepository.deleteById(id);
+    }
 }

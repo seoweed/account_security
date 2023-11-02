@@ -2,6 +2,7 @@ package com.weed.account_security.controller;
 
 import com.weed.account_security.dto.AccountInfoDto;
 import com.weed.account_security.entity.AccountInfoEntity;
+import com.weed.account_security.repository.AccountInfoRepository;
 import com.weed.account_security.service.AccountInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AccountInfoController {
     private final AccountInfoService accountInfoService;
+    private final AccountInfoRepository accountInfoRepository;
+
+
     // 삭제 예정
     @GetMapping("/user/account/save")
     public String accountSave() {
@@ -45,6 +49,15 @@ public class AccountInfoController {
         model.addAttribute("accountInfoList", accountInfoList);
         return "accountInfoList";
     }
+    // 계정 정보 삭제
+//    @GetMapping("/user/account/delete")
+//    public String accountDelete(@RequestParam("id") Long id, @RequestBody String username) {
+//        return accountInfoRepository.findUsernameById(id);
+////        accountInfoService.delete(id);
+//
+////        return "redirect://accountInfoList?username=" + username;
+//    }
+
 
 //    @PostMapping("/user/api/submit")
 //    public String accountSave(AccountInfoEntity accountInfoEntity, Model model) {

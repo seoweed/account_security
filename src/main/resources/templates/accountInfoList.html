@@ -1,7 +1,69 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Account Information List</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Account Information List for User: <span th:text="${username}"></span></h1>-->
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>Account ID</th>-->
+<!--        <th>Account Password</th>-->
+<!--        <th>Site</th>-->
+<!--        <th>Save At</th>-->
+<!--    </tr>-->
+<!--    <tr th:each="accountInfo : ${accountInfoList}">-->
+<!--        <td th:text="${accountInfo.accountId}"></td>-->
+<!--        <td th:text="${accountInfo.accountPassword}"></td>-->
+<!--        <td th:text="${accountInfo.site}"></td>-->
+<!--        <td th:text="${accountInfo.saveAt}"></td>-->
+<!--        <td><a th:href="@{'/user/account/delete?id=' + ${accountInfo.id}}">Delete</a></td>-->
+<!--    </tr>-->
+<!--</table>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Account Information List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            background-color: #007BFF;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
 <h1>Account Information List for User: <span th:text="${username}"></span></h1>
@@ -11,12 +73,14 @@
         <th>Account Password</th>
         <th>Site</th>
         <th>Save At</th>
+        <th>Action</th>
     </tr>
-    <tr th:each="accountInfo : ${accountInfoList}">
+    <tr th:each="accountInfo, iterStat : ${accountInfoList}" th:class="${iterStat.odd} ? 'odd' : 'even'">
         <td th:text="${accountInfo.accountId}"></td>
         <td th:text="${accountInfo.accountPassword}"></td>
         <td th:text="${accountInfo.site}"></td>
         <td th:text="${accountInfo.saveAt}"></td>
+        <td><a th:href="@{'/user/account/delete?id=' + ${accountInfo.id}}">Delete</a></td>
     </tr>
 </table>
 </body>
