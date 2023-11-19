@@ -98,6 +98,19 @@
         .container {
             position: relative;
         }
+                .register-link {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: #777;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 30px;
+            transition: color 0.3s;
+        }
+        .register-link:hover {
+            color: #000;
+        }
     </style>
 </head>
 <body>
@@ -106,13 +119,14 @@
         <div class="sign-in-container">
             <form method="POST" action="/api/login">
                 <h1>Sign In</h1>
-                <span>or use your account</span>
+                <span>Pleas Login</span>
                 <label for="username">ID</label>
                 <input id="username" name="username" type="text">
                 <label for="password">PASSWORD</label>
                 <input id="password" name="password" type="password">
                 <button id="btn-login" type="submit">Login</button>
             </form>
+            <a class="register-link" href="/public/register">Go to the Register Page</a>
         </div>
         <div class="right-image">
         </div>

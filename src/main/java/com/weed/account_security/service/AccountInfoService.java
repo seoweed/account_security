@@ -4,11 +4,13 @@ import com.weed.account_security.crypt.SeedCBC;
 import com.weed.account_security.dto.AccountInfoDto;
 import com.weed.account_security.entity.AccountInfoEntity;
 import com.weed.account_security.repository.AccountInfoRepository;
+import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -48,12 +50,25 @@ public class AccountInfoService {
     }
 
 //     계정 정보 수정
-//    public void update(AccountInfoEntity updateAccountInfoEntity) {
-//        SeedCBC seedCBC = new SeedCBC();
-//        updateAccountInfoEntity.setAccountPassword(seedCBC.encoding(updateAccountInfoEntity.getAccountPassword()));
-//        accountInfoRepository.save(updateAccountInfoEntity);
-//    }
-//
+    public void save(AccountInfoDto accountInfoDto, Long id) {
+        SeedCBC seedCBC = new SeedCBC();
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null && authentication.isAuthenticated()) {
+            String username = authentication.getName();
+
+
+            AccountInfoEntity build = AccountInfoEntity.builder()
+                    .id(id)
+                    .accountId(accountInfoDto.getAccountId())
+                    .accountPassword(seedCBC.encoding(accountInfoDto.getAccountPassword()))
+                    .site(accountInfoDto.getSite())
+                    .saveAt(LocalDateTime.now())
+                    .username(username)
+                    .build();
+            accountInfoRepository.save(build);
+        }
+    }
+
 //     계정 정보 삭제
     public void delete(Long id) {
         accountInfoRepository.deleteById(id);

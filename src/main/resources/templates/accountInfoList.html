@@ -78,7 +78,7 @@
     <tr th:each="accountInfo, iterStat : ${accountInfoList}" th:class="${iterStat.odd} ? 'odd' : 'even'">
         <td th:text="${accountInfo.accountId}"></td>
         <td th:text="${accountInfo.accountPassword}"></td>
-        <td th:text="${accountInfo.site}"></td>
+        <td><a th:href="@{'http://' + ${accountInfo.site}}" th:text="${accountInfo.site}" target="_blank">Visit Site</a></td>
         <td th:text="${accountInfo.saveAt}"></td>
         <td><a th:href="@{'/user/account/delete?id=' + ${accountInfo.id}}">Delete</a></td>
     </tr>

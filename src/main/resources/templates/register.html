@@ -2,15 +2,134 @@
 <html>
 <head>
     <title>Register Page</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Montserrat", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .wrapper {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #262D3A;
+            overflow: hidden;
+        }
+        .container {
+            border-radius: 10px;
+            box-shadow: -5px -5px 10px #B890E5, 5px 5px 10px #babebc;
+            position: relative;
+            width: 764px;
+            min-height: 480px;
+            overflow: hidden;
+        }
+        form {
+            background: #D7CEE2;
+            display: flex;
+            flex-direction: column;
+            padding: 0 50px;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        form input {
+            background: #eee;
+            padding: 16px;
+            margin: 8px 0;
+            width: 85%;
+            border: 0;
+            outline: none;
+            border-radius: 20px;
+            box-shadow: inset 7px 2px 10px #babebc, inset -5px -5px 12px #fff;
+        }
+        button {
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 15px 45px;
+            margin: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 80ms ease-in;
+        }
+        .form_btn {
+            box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
+        }
+        .form_btn:active {
+            box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 2px #fff;
+        }
+        .sign-in-container {
+            position: absolute;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            transition: all 0.5s;
+        }
+        form h1 {
+            font-weight: bold;
+            margin: 0;
+            color: #000;
+        }
+        span {
+            font-size: 12px;
+            color: #000;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+        .right-image {
+            background-color: #aaa;
+            background-image: url(https://www.urbanbrush.net/web/wp-content/uploads/edd/2018/03/web-20180313001555169262.png);
+            background-size: 100%;
+            position: absolute;
+            left: 50%;
+            width: 50%;
+            height: 100%;
+        }
+        .container {
+            position: relative;
+        }
+                .register-link {
+            position: absolute;
+            bottom: 20px;
+            right: 31px;
+            color: #777;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 30px;
+            transition: color 0.3s;
+        }
+        .register-link:hover {
+            color: #000;
+        }
+    </style>
 </head>
 <body>
-<form id="form-register" onsubmit="return false;">
-    <label for="username">ID</label>
-    <input id="username" name="username" type="text">
-    <label for="password">PASSWORD</label>
-    <input id="password" name="password" type="password">
-    <button id="btn-register" type="submit">Register</button>
-</form>
+<div class="wrapper">
+    <div class="container">
+        <div class="sign-in-container">
+            <form id="form-register" onsubmit="return false;">
+                <h1>Register</h1>
+                <span>Please Register</span>
+                <label for="username">ID</label>
+                <input id="username" name="username" type="text">
+                <label for="password">PASSWORD</label>
+                <input id="password" name="password" type="password">
+                <button id="btn-register" type="submit">Register</button>
+            </form>
+            <a class="register-link" href="/login">Go to the Login Page</a>
+        </div>
+        <div class="right-image"></div>
+    </div>
+</div>
 </body>
 <script type="text/javascript" src="/js/register.js"></script>
 </html>
