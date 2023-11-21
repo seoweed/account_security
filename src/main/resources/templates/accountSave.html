@@ -105,10 +105,9 @@
     </style>
 </head>
 <body>
-<!-- 추가된 부분: main page로 이동하는 버튼 -->
 <a href="/" class="main-page-link">Main Page</a>
 
-<form method="POST" action="/user/submit">
+<form method="POST" action="/user/submit" onsubmit="return validateForm()">
     <div>
         <label for="accountId">Account ID</label>
         <input type="text" id="accountId" name="accountId" placeholder="Enter Account ID" />
@@ -128,5 +127,21 @@
         <input type="submit" value="Submit" />
     </div>
 </form>
+<script>
+    function validateForm() {
+
+        var accountId = document.getElementById('accountId').value;
+        var accountPassword = document.getElementById('accountPassword').value;
+        var site = document.getElementById('site').value;
+
+
+        if (accountId === '' || accountPassword === '' || site === '') {
+            alert('모든 필드를 작성하세요.');
+            return false;
+        }
+        alert('성공적으로 저장되었습니다.')
+        return true;
+    }
+</script>
 </body>
 </html>

@@ -52,8 +52,13 @@ public class AccountInfoService {
     
     // page read
     public Page<AccountInfoEntity> pageRead(String username, int page) {
-        Pageable pageable = PageRequest.of(page, 10);
-        return accountInfoRepository.findAll(pageable);
+        Pageable pageable = PageRequest.of(page, 7);
+        SeedCBC seedCBC = new SeedCBC();
+        Page<AccountInfoEntity> allByUsername = accountInfoRepository.findAllByUsername(pageable, username);
+        for (AccountInfoEntity accountEntity : allByUsername) {
+            accountEntity.setAccountPassword(seedCBC.decoding(accountEntity.getAccountPassword()));
+        }
+        return allByUsername;
     } 
 
 //     계정 정보 수정

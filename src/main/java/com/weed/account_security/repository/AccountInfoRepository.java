@@ -13,5 +13,5 @@ import java.util.Optional;
 public interface AccountInfoRepository extends JpaRepository<AccountInfoEntity, Long> {
     List<AccountInfoEntity> findAllByUsername(String username);
     String findUsernameById(Long id);
-    Page<AccountInfoEntity> findAll(Pageable pageable);
+    Page<AccountInfoEntity> findAllByUsername(Pageable pageable, String username);
 }

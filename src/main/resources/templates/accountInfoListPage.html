@@ -255,7 +255,16 @@
             <tr th:each="accountInfo : ${accountInfoListPage}">
             <td th:text="${accountInfo.accountId}"></td>
                 <td th:text="${accountInfo.accountPassword}"></td>
-                <td th:text="${accountInfo.site}"></td>
+                <td>
+                    <a th:if="${!accountInfo.site.startsWith('http://') and !accountInfo.site.startsWith('https://')}"
+                       th:href="'http://' + ${accountInfo.site}"
+                       th:text="${accountInfo.site}"
+                       target="_blank">Visit Site</a>
+                    <a th:if="${accountInfo.site.startsWith('http://') or accountInfo.site.startsWith('https://')}"
+                       th:href="${accountInfo.site}"
+                       th:text="${accountInfo.site}"
+                       target="_blank">Visit Site</a>
+                </td>
                 <td th:text="${accountInfo.saveAt}"></td>
                 <td><a th:href="@{'/user/account/delete?id=' + ${accountInfo.id}}">Delete</a></td>
             </tr>

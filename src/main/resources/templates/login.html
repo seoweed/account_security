@@ -116,7 +116,7 @@
 <div class="wrapper">
     <div class="container">
         <div class="sign-in-container">
-            <form method="POST" action="/api/login">
+            <form method="POST" action="/api/login" onsubmit="return validateForm()">
                 <h1>Sign In</h1>
                 <span>Pleas Login</span>
                 <label for="username">ID</label>
@@ -131,5 +131,18 @@
         </div>
     </div>
 </div>
+<script>
+    function validateForm() {
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        if (username === '') {
+            alert('아이디와 비밀번호를 입력해주세요.');
+            return false;
+        }
+        return true;
+    }
+</script>
 </body>
 </html>

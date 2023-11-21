@@ -116,7 +116,7 @@
 <div class="wrapper">
     <div class="container">
         <div class="sign-in-container">
-            <form id="form-register" onsubmit="return false;">
+            <form id="form-register" onsubmit="return validateForm();">
                 <h1>Register</h1>
                 <span>Please Register</span>
                 <label for="username">ID</label>
@@ -130,6 +130,22 @@
         <div class="right-image"></div>
     </div>
 </div>
+<script>
+    function validateForm() {
+
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+
+        if (username === '' || password === '') {
+            alert('모든 필드를 작성하세요.');
+            return false;
+        }
+
+
+        return true;
+    }
+</script>
 </body>
 <script type="text/javascript" src="/js/register.js"></script>
 </html>

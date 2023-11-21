@@ -46,15 +46,15 @@ public class AccountInfoController {
 
     // 사용자 정보 list 로 출력
     // 현재 로그인 되어있는 사용자의 정보를 가져와서 로그인 한 사용자만 볼 수 있도록 만듬
-    @GetMapping("/user/accountInfoList")
-    public String getAccountInfoList(Model model, Principal principal) {
-        String username = principal.getName();
-        List<AccountInfoEntity> accountInfoList = accountInfoService.read(username);
-        model.addAttribute("accountInfoList", accountInfoList);
-        return "accountInfoList";
-    }
+//    @GetMapping("/user/accountInfoList")
+//    public String getAccountInfoList(Model model, Principal principal) {
+//        String username = principal.getName();
+//        List<AccountInfoEntity> accountInfoList = accountInfoService.read(username);
+//        model.addAttribute("accountInfoList", accountInfoList);
+//        return "accountInfoList";
+//    }
 
-    @GetMapping("/user/accountInfoListPage")
+    @GetMapping("/user/accountInfoList")
     public String getAccountInfoListPage(Model model, Principal principal, @RequestParam(value = "page", defaultValue = "0") int page) {
         String username = principal.getName();
         Page<AccountInfoEntity> accountInfoListPage = accountInfoService.pageRead(username, page);
