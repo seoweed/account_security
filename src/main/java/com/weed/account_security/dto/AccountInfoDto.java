@@ -29,19 +29,4 @@ public class AccountInfoDto {
 
     private String site;
 
-
-//    private String userId;
-
-//    private LocalDateTime saveAt;
-
-//    public AccountInfoEntity toAccountInfoEntity() {
-//
-//        return AccountInfoEntity.builder()
-//                .accountId(this.accountId)
-//                .accountPassword(this.accountPassword)
-//                .site(this.site)
-////                .user(userService) //  그냥 바로 username으로 받지 말고 entity를 받아오면 안되나요??
-////                .saveAt(this.saveAt)
-//                .build();
-//    }
 }

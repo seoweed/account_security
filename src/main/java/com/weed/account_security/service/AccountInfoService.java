@@ -41,6 +41,7 @@ public class AccountInfoService {
     // TODO 지금은 사용자의 이름을 파라미터로 받아서 출력해주는데 이렇게 되면 다른 사용자들이 자신 이외의 정보를 볼 수 있음
     // 따라서 로그인 되어있는 사용자의 이름을 자동으로 파라미터에 넣거나 자동으로 들어가게 만들어서 조회를 하면 될것같음
     public List<AccountInfoEntity> read(String username) {
+        // TODO paging
         SeedCBC seedCBC = new SeedCBC();
         List<AccountInfoEntity> allByUsername = accountInfoRepository.findAllByUsername(username);
         for (AccountInfoEntity accountEntity : allByUsername) {

@@ -1,22 +1,126 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--    <title>Account Info Form</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form method="POST" action="/user/submit">-->
+<!--    <div>-->
+<!--        <label for="accountId">Account ID:</label>-->
+<!--        <input type="text" id="accountId" name="accountId" placeholder="Enter Account ID" />-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="accountPassword">Account Password:</label>-->
+<!--        <input type="password" id="accountPassword" name="accountPassword" placeholder="Enter Account Password" />-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="site">Site:</label>-->
+<!--        <input type="text" id="site" name="site" placeholder="Enter Site Name" />-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <input type="submit" value="Submit" />-->
+<!--    </div>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Account Info Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 100px;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        div {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .main-page-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .main-page-link:hover {
+            background-color: #2980b9;
+        }
+    </style>
 </head>
 <body>
-<form method="POST" action="/user/submit"> <!-- "submit"은 데이터를 전송할 엔드포인트 URL로 변경해야 합니다 -->
+<!-- 추가된 부분: main page로 이동하는 버튼 -->
+<a href="/" class="main-page-link">Main Page</a>
+
+<form method="POST" action="/user/submit">
     <div>
-        <label for="accountId">Account ID:</label>
+        <label for="accountId">Account ID</label>
         <input type="text" id="accountId" name="accountId" placeholder="Enter Account ID" />
     </div>
 
     <div>
-        <label for="accountPassword">Account Password:</label>
+        <label for="accountPassword">Account Password</label>
         <input type="password" id="accountPassword" name="accountPassword" placeholder="Enter Account Password" />
     </div>
 
     <div>
-        <label for="site">Site:</label>
+        <label for="site">Site</label>
         <input type="text" id="site" name="site" placeholder="Enter Site Name" />
     </div>
 
