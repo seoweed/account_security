@@ -5,6 +5,7 @@ import com.weed.account_security.entity.AccountInfoEntity;
 import com.weed.account_security.repository.AccountInfoRepository;
 import com.weed.account_security.service.AccountInfoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +53,16 @@ public class AccountInfoController {
         model.addAttribute("accountInfoList", accountInfoList);
         return "accountInfoList";
     }
+
+    @GetMapping("/user/accountInfoListPage")
+    public String getAccountInfoListPage(Model model, Principal principal, @RequestParam(value = "page", defaultValue = "0") int page) {
+        String username = principal.getName();
+        Page<AccountInfoEntity> accountInfoListPage = accountInfoService.pageRead(username, page);
+        model.addAttribute("accountInfoListPage", accountInfoListPage);
+        return "accountInfoListPage";
+
+    }
+
     // 계정 정보 삭제
     @GetMapping("/user/account/delete")
     public String accountDelete(@RequestParam("id") Long id) {
