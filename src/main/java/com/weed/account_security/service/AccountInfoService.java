@@ -68,7 +68,6 @@ public class AccountInfoService {
         if (authentication != null && authentication.isAuthenticated()) {
             String username = authentication.getName();
 
-
             AccountInfoEntity build = AccountInfoEntity.builder()
                     .id(id)
                     .accountId(accountInfoDto.getAccountId())
@@ -77,6 +76,7 @@ public class AccountInfoService {
                     .saveAt(LocalDateTime.now())
                     .username(username)
                     .build();
+
             accountInfoRepository.save(build);
         }
     }
